@@ -85,7 +85,5 @@ movies = Movie.all()
 actors = Actor.all()
 roles = Role.all()
 
-
-
 binding.pry
 nil
