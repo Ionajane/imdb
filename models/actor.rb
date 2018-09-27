@@ -32,7 +32,11 @@ class Actor
   end
 
   def save()
-
+    sql = "INSERT INTO actors(f_name, l_name)
+    VALUES ($1, $2) RETURNING id;"
+    values = [@f_name, @l_name]
+    results = SqlRunner.run(sql, values)
+    @id = results[0]['id'].to_i
   end
 
   def update()

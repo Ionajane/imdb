@@ -32,7 +32,11 @@ class Movie
   end
 
   def save()
-
+    sql = "INSERT INTO movies(title, genre)
+    VALUES ($1, $2) RETURNING id;"
+    values = [@title, @genre]
+    results = SqlRunner.run(sql, values)
+    @id = results[0]['id'].to_i
   end
 
   def update()

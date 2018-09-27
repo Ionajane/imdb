@@ -33,7 +33,11 @@ class Role
   end
 
   def save()
-
+    sql = "INSERT INTO roles (actor_id, movie_id, fee)
+    VALUES ($1, $2, $3) RETURNING id;"
+    values = [@actor_id, @movie_id, @fee]
+    results = SqlRunner.run(sql, values)
+    @id = results[0]['id'].to_i()
   end
 
   def update()
