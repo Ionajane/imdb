@@ -12,11 +12,15 @@ class Actor
   end
 
   def self.delete_all()
-    
+    sql = 'DELETE FROM actors;'
+    SqlRunner.run(sql)
   end
 
   def self.all()
-
+    sql = 'SELECT * FROM actors;'
+    actors = SqlRunner.run(sql)
+    result = actors.map {|actor| Actor.new(actor)}
+    return result
   end
 
   def self.find(id)

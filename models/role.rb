@@ -13,11 +13,15 @@ class Role
   end
 
   def self.delete_all()
-
+    sql = 'DELETE FROM roles;'
+    SqlRunner.run(sql)
   end
 
   def self.all()
-
+    sql = 'SELECT * FROM roles;'
+    roles = SqlRunner.run(sql)
+    result = roles.map {|role| Role.new(role)}
+    return result
   end
 
   def self.find(id)
