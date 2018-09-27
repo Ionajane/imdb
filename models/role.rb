@@ -41,15 +41,28 @@ class Role
   end
 
   def update()
-
+    sql = 'UPDATE roles SET actor_id = $1, movie_id = $2
+    WHERE id = $3'
+    values = [@actor_id, @movie_id, @fee, @id]
+    SqlRunner.run(sql, values)
   end
 
   def movie()
-
+    sql = 'SELECT * FROM movies
+    WHEN id = $1'
+    result = SqlRunner.run(sql, [@movie_id])
+    movie_hash = result[0]
+    movie = Movie.new(movie_hash)
+     return movie
   end
 
   def actor()
-
+    sql = 'SELECT * FROM actors
+    WHEN id = $1'
+    result = SqlRunner.run(sql, [@actor_id])
+    actor_hash = result[0]
+    actor = Actor.new(actor_hash)
+     return actor
   end
 
 end
