@@ -10,4 +10,29 @@ class Actor
     @f_name = options['f_name']
     @l_name = options['l_name']
   end
+
+  def self.delete_all()
+    
+  end
+
+  def self.all()
+
+  end
+
+  def self.find(id)
+
+  end
+
+  def self.delete(id)
+
+  end
+
+  def save()
+
+  end
+
+  def update()
+
+  end
+
 end
