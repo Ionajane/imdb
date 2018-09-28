@@ -24,11 +24,9 @@ class Actor
   end
 
   def self.find(id)
-
   end
 
   def self.delete(id)
-
   end
 
   def save()
@@ -40,8 +38,9 @@ class Actor
   end
 
   def update()
-    sql = 'UPDATE actors SET f_name = $1, l_name = $2
-    WHERE id = $3'
+    sql = 'UPDATE actors
+    SET f_name = $1, l_name = $2
+    WHERE id = $3;'
     values = [@f_name, @l_name, @id]
     SqlRunner.run(sql, values)
   end

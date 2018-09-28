@@ -41,7 +41,7 @@ class Movie
 
   def update()
     sql = 'UPDATE movies SET title = $1, genre = $2
-    WHERE id = $3'
+    WHERE id = $3;'
     values = [@title, @genre, @id]
     SqlRunner.run(sql, values)
   end
